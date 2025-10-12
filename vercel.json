@@ -3,7 +3,7 @@
   "version": 2,
   "functions": {
     "api/*.php": {
-      "runtime": "vercel-php@0.6.0",
+      "runtime": "@php-runtime/vercel-php@2",
       "maxDuration": 15,
       "includeFiles": "vendor/**"
     }
@@ -17,9 +17,5 @@
       "source": "/(.*)",
       "destination": "/public/$1"
     }
-  ],
-
-  "build": {
-    "node": "20.x"
-  }
+  ]
 }
