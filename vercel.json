@@ -17,5 +17,9 @@
       "source": "/(.*)",
       "destination": "/public/$1"
     }
-  ]
+  ],
+
+  "build": {
+    "node": "20.x"
+  }
 }
