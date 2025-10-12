@@ -1,6 +1,14 @@
 {
   "name": "mas-tumbas",
   "version": "1.0.0",
+  "description": "Proyek yang menggunakan vercel-php",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "engines": {
     "node": "20.x"
   }
