@@ -1,9 +1,0 @@
-{
-  "name": "mas-tumbas-php",
-  "version": "1.0.0",
- 
-  "scripts": {}, 
-  "engines": {
-    "node": "20.0" 
-  }
-}
