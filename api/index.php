@@ -1,6 +1,9 @@
 <?php
-require 'config.php';
-require '../vendor/autoload.php';
+session_save_path('/tmp');  // wajib di serverless Vercel
+session_start();
+require __DIR__ . '/config.php';
+require __DIR__ . '/../vendor/autoload.php';
+
 
 // --- Supabase Helper ---
 class SupabaseHelper
@@ -153,12 +156,12 @@ $galeri = $client->from('galeri')->select('*')->order('id')->execute();
                 <div class="flex items-center gap-2">
                     <?php if (file_exists('log.png')): ?>
                         <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500 shadow-md">
-                            <img src="../public/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-cover">
+                            <img src="/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-cover">
                         </div>
 
                     <?php else: ?>
                         <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-500 shadow-md">
-                            <img src="../public/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-cover">
+                            <img src="/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-cover">
                         </div>
                     <?php endif; ?>
                     <span class="font-bold text-blue-800 text-lg">MAS TUMBAS</span>
@@ -190,9 +193,9 @@ $galeri = $client->from('galeri')->select('*')->order('id')->execute();
     <!-- Hero -->
     <header id="beranda" class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-10">
         <div class="container mx-auto px-4 text-center">
-            <?php if (file_exists('../public/fixlogo.jpg')): ?>
+            <?php if (file_exists('/fixlogo.jpg')): ?>
                 <div class="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-blue-400 shadow-xl mb-4 bg-white p-1">
-                    <img src="../public/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-contain">
+                    <img src="/fixlogo.jpg" alt="Logo Mas Tumbas" class="w-full h-full object-contain">
                 </div>
 
 
@@ -391,8 +394,9 @@ $galeri = $client->from('galeri')->select('*')->order('id')->execute();
                 &copy; <?= date('Y') ?> Mas Tumbas. All rights reserved.
             </p>
             <p class="text-gray-500 text-xs mt-2">
-                <a href="admin.php" class="hover:text-blue-400 transition">Admin Panel</a>
+                <a href="/admin" class="hover:text-blue-400 transition">Admin Panel</a>
             </p>
+
         </div>
     </footer>
 

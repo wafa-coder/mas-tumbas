@@ -1,4 +1,6 @@
 <?php
+
+session_save_path('/tmp');  // wajib di serverless Vercel
 session_start();
 
 // Enable error reporting untuk debugging
@@ -7,8 +9,9 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/php_errors.log');
 
-require '../vendor/autoload.php';
-require 'config.php';
+require __DIR__ . '/config.php';
+require __DIR__ . '/../vendor/autoload.php';
+
 
 use GuzzleHttp\Client as GuzzleClient;
 
@@ -119,7 +122,7 @@ $client = new SupabaseHelper($supabaseUrl, $supabaseKey);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     if ($_POST['username'] === ADMIN_USERNAME && password_verify($_POST['password'], ADMIN_PASSWORD_HASH)) {
         $_SESSION['admin_logged_in'] = true;
-        header('Location: admin.php');
+        header('Location: admin');
         exit;
     }
     $pesan = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">Username atau password salah!</div>';
@@ -127,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location: admin.php');
+    header('Location: admin');
     exit;
 }
 
@@ -186,10 +189,10 @@ if ($action === 'hapus' && isset($_POST['id']) && $tabel) {
         }
         $client->from($tabel)->delete()->eq('id', $_POST['id'])->execute();
         $_SESSION['pesan'] = 'dihapus';
-        header("Location: admin.php");
+        header("Location: admin");
     } catch (Exception $e) {
         $_SESSION['pesan_error'] = $e->getMessage();
-        header("Location: admin.php");
+        header("Location: admin");
     }
     exit;
 }
@@ -294,12 +297,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['simpan'])) {
 
         $_SESSION['pesan'] = $id ? 'diperbarui' : 'ditambah';
         error_log("=== SIMPAN DATA BERHASIL ===");
-        header("Location: admin.php");
+        header("Location: admin");
     } catch (Exception $e) {
         $_SESSION['pesan_error'] = $e->getMessage();
         error_log("ERROR SIMPAN: " . $e->getMessage());
         error_log("=== SIMPAN DATA GAGAL ===");
-        header("Location: admin.php");
+        header("Location: admin");
     }
     exit;
 }
