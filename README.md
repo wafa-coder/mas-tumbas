@@ -1,7 +1,7 @@
 # Mas Tumbas
 
 ## Deskripsi Proyek
-Projek mas-tumbas adalah sebuah aplikasi yang dirancang untuk [deskripsi aplikasi akan disesuaikan]. Proyek ini merupakan solusi yang menggabungkan teknologi web modern dengan arsitektur yang scalable.
+Mas Tumbas adalah sebuah aplikasi yang dirancang untuk memudahkan pengguna memesan jasa seseorang guna melakukan berbagai tugas atau pekerjaan. Aplikasi ini menghubungkan pemberi kerja dengan penyedia jasa secara efisien dan transparan. Proyek ini merupakan solusi yang menggabungkan teknologi web modern dengan arsitektur yang scalable untuk memenuhi kebutuhan pasar layanan jasa on-demand.
 
 ## 📊 Komposisi Teknologi
 Proyek ini dibangun menggunakan stack teknologi berikut:
@@ -19,10 +19,14 @@ Proyek ini dibangun menggunakan stack teknologi berikut:
   - Memastikan konsistensi environment di berbagai platform
 
 ## 🚀 Fitur Utama
+- Platform pemesanan jasa yang user-friendly
+- Sistem matching antara pemberi kerja dan penyedia jasa
 - Arsitektur berbasis PHP yang robust
 - Support untuk type safety dengan Hack
 - Containerization menggunakan Docker untuk deployment yang mudah
 - Skalabilitas dan maintainability yang baik
+- Sistem rating dan review untuk transparansi
+- Manajemen pembayaran yang aman
 
 ## 💻 Requirement Sistem
 - PHP 7.4+ atau yang lebih baru
